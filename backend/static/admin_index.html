@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Content Delivery Network (CDN) Imports -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- Google jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Cloudinary Upload Widget -->
+    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  </head>
+
+  <body id="admin">
+    <h2>Welcome to the Galleria Scola Photo Upload Page!</h2>
+    <section>
+      Please click on the link below,
+      drag and drop your photos into the widget to upload them to Cloudinary!
+      Once they are uploaded, they will automatically show up on your photo order website.
+    </section>
+    <br></br>
+    
+    <!-- Widget Injection Destination -->
+    <a href="#" id="upload_widget_opener">Click Here to Upload Multiple Images</a>
+  </body>
+
+  <!-- Cloudinary Script, ENCAPSULATE THIS INTO A SEPARATE FILE YOU DOLT -->
+  <script type="text/javascript">
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+
+      cloudinary.openUploadWidget({ cloud_name: 'clairephotography', upload_preset: 'wucansqq'},
+        function(error, result) { console.log(error, result) });
+
+    }, false);
+  </script>
+
+</html>
