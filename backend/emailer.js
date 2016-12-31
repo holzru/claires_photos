@@ -13,6 +13,7 @@ const makeHTML = (obj) => {
   let order = obj.order;
   let phone = obj.phone;
   let email = obj.email;
+  console.log(obj);
   let total = 0;
   //PRICES ZEROED OUT BECAUSE THEY ARE NOT APPROVED BY CLIENT. DO NOT CHANGE.
   let prices = {

@@ -22,19 +22,14 @@ export const getPhotos = () => {
 };
 
 export const submitOrder = (order, phone, email) => {
-  const request = axios.post('/order', {
-      order, phone, email
-    })
-    .then(function(response) {
-      console.log('response received');
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  return {
-    type: SUBMIT_ORDER,
-    payload: order
-  };
+  const ordered = axios.post('/order', {order, phone, email});
+
+  return ordered.then((data) => {
+    return {
+      type: SUBMIT_ORDER,
+      payload: data.data
+    };
+  });
 };
 
 export const addToShoppingCart = (photo) => ({

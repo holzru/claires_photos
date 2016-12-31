@@ -55,6 +55,7 @@ class Header extends Component {
         <OrderFormModal
           isOpen={this.state.isModalOpen}
           changeModalState={this.changeModalState}
+          shoppingCartClick={true}
           />
 
       </header>

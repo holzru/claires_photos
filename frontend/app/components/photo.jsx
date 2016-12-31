@@ -1,9 +1,10 @@
 'use strict';
 import React, { Component } from 'react';
 import ReactToolTip from 'react-tooltip';
+
 import CheckboxGlyph from '../constants/svg/CheckboxGlyph_SVG';
 import OrderFormModal from './OrderFormModal';
-
+import PhotoQuantityForm from './photo_quantity_selection_form';
 
 const URL_BASE = 'https://res.cloudinary.com/clairephotography/image/upload/';
 
@@ -31,8 +32,10 @@ export default class Photo extends Component {
   onPhotoClick() {
     const { className } = this.state;
     const { selectPhoto, photoObject } = this.props;
+
     this.renderModal();
     selectPhoto(photoObject);
+
     if (className.includes('active')) {
       this.setState({ className: 'photo'});
     } else {
@@ -61,6 +64,7 @@ export default class Photo extends Component {
         <CheckboxGlyph className='checkbox-glyph'/>
       </div>
     );
+    
     const modal = (
       <OrderFormModal
         isOpen={this.state.isModalOpen}

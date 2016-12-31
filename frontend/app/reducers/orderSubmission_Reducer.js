@@ -3,11 +3,10 @@ import { SUBMIT_ORDER } from '../actions/index';
 
 
 export default function orderSubmission(state = {}, action) {
-  console.log(action);
   switch (action.type) {
     case SUBMIT_ORDER:
+      console.log('ACTION FROM REDUCER');
       console.log(action);
-      // console.log(`Action <${action.type}> registered with payload <payload: ${action.payload}` + '>');
       return action.payload;
     default:
       return state;

@@ -17,9 +17,7 @@ class SubmitOrder extends Component {
   }
 
   onSub(evt) {
-    console.log('\n STATE FROM SUB:', this.state);
-    //FIXME FIXME ORDER SUBMISSION REDUCER IS BORKED NEEDS FIXING BEFORE SUBMIT WILL WORK
-    this.props.sub(this.props.order, this.state.email, this.state.phone);
+    this.props.sub(this.props.cart, this.state.email, this.state.phone);
   }
 
   changeContactInfo(evt) {
@@ -63,7 +61,8 @@ class SubmitOrder extends Component {
 };
 
 let mapStateToProps = (state) => ({
-  info: state.info
+  info: state.info,
+  cart: state.shoppingCart
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
