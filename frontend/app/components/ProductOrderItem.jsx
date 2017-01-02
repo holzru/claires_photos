@@ -24,10 +24,6 @@ const ProductOrderItem = ({ itemNum, photo }) => (
         src={ photo.secure_url }
         alt={ `Photograph thumbnail ${photo.public_id}` }
       />
-
-      <ItemQuantityForm
-        photoID={ photo.public_id }
-      />
     </div>
 
   </li>

@@ -30,12 +30,6 @@ class OrderFormModal extends Component {
   }
 
   render() {
-    //ok, this is kind of janky. make this semi-work as POC.
-    //tomorrow, get on the dual screens and factor our the forms as interchangable components.
-    //one should be a photo change quantity and add to shopping cart form
-    //if launched from shopping cart icon, the other form should have all the photos listed amazon style
-    //and a submit order button.
-
     let greeting = <h2>The photo goes here</h2>
 
     //if-else statement that will add the submitOrder in if shoppingCartClick is passed in as true

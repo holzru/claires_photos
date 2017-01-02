@@ -45,7 +45,8 @@ export default class Photo extends Component {
 
   renderPhoto() {
     const { className } = this.state;
-    const { public_id } = this.props.photoObject;
+    const { photoObject } = this.props
+    const public_id = photoObject.public_id;
 
     let srcUrl = thumbResize(public_id);
 
@@ -64,11 +65,12 @@ export default class Photo extends Component {
         <CheckboxGlyph className='checkbox-glyph'/>
       </div>
     );
-    
+
     const modal = (
-      <OrderFormModal
+      <PhotoQuantityForm
         isOpen={this.state.isModalOpen}
         changeModalState={this.changeModalState}
+        photo={photoObject}
       />
     );
 

@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import ItemQuantityForm from './ItemQuantityForm';
 import { toggleModal, submitOrder } from '../actions/index';
 
 class OrderFormModal extends Component {
@@ -20,7 +21,11 @@ class OrderFormModal extends Component {
 
   renderPhoto(photo) {
     return(
-      <h2>hi</h2>
+      <div>
+        <h2>hi</h2>
+        <img src={photo.url}/>
+        <ItemQuantityForm />
+      </div>
     );
   }
 
@@ -36,7 +41,7 @@ class OrderFormModal extends Component {
         //This is the X to close the modal, yo
         <div id="close-modal-btn" onClick={this.props.changeModalState}>X</div>
         //This renders the clicked photo
-        {this.renderPhoto()}
+        {this.renderPhoto(this.props.photo)}
 
       </Modal>
     );
