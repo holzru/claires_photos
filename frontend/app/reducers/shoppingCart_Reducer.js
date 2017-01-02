@@ -1,5 +1,5 @@
 'use strict';
-import { ADD_TO_SHOPPING_CART, EMPTY_SHOPPING_CART } from '../actions/index';
+import { ADD_TO_SHOPPING_CART, EMPTY_SHOPPING_CART, CHANGE_ITEM_QUANTITY } from '../actions/index';
 
 
 const toggleSelectedState = (photo) => Object.assign({}, photo, { selected: !photo.selected });
@@ -25,6 +25,11 @@ export default function payloadSelect(state = {}, action) {
       } else {
         return null;
       }
+    case CHANGE_ITEM_QUANTITY:
+      console.log('item quantity changed');
+      
+      let newState = {}
+      return state;
     default:
       return state;
   }

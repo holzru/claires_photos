@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import ItemQuantityForm from './ItemQuantityForm';
-import { toggleModal, submitOrder } from '../actions/index';
+import { toggleModal, addToShoppingCart, changeItemQuantity } from '../actions/index';
 
 class OrderFormModal extends Component {
   constructor(props) {
@@ -30,19 +30,21 @@ class OrderFormModal extends Component {
   }
 
   render() {
-
+    let {photo} = this.props;
     return (
       <Modal
         isOpen={this.props.isOpen}
         contentLabel=''
       >
-
         <h3>This is your photo</h3>
-        //This is the X to close the modal, yo
         <div id="close-modal-btn" onClick={this.props.changeModalState}>X</div>
-        //This renders the clicked photo
-        {this.renderPhoto(this.props.photo)}
 
+        {this.renderPhoto(photo)}
+        <button
+          onClick={(photo) => this.props.addToShoppingCart(photo)}
+        >
+          Add to Shopping Cart
+        </button>
       </Modal>
     );
   }
@@ -54,7 +56,7 @@ let mapStateToProps = (state) => ({
 });
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  submitOrder
+  addToShoppingCart
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderFormModal);
+export default connect(null, mapDispatchToProps)(OrderFormModal);

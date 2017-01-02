@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import { changeItemQuantity } from '../actions/index';
 
-
 class ItemQuantityForm extends Component {
   constructor(props) {
     super(props);
@@ -13,19 +12,20 @@ class ItemQuantityForm extends Component {
     this.changeItemQuantity = this.changeItemQuantity.bind(this);
     this.enableInput = this.enableInput.bind(this);
     this.disableInput = this.disableInput.bind(this);
+    this.state = {
+        '5x7': 0,
+        '8x10': 0,
+        '18x24': 0
+    };
   }
 
   changeItemQuantity(evt) {
-    const ID = this.props.photoID;
     let num =  evt.target.value;
-    let size = evt.target.dataset;
+    let size = `${evt.target.dataset.size}`;
 
-    this.props.changeItemQuantity({
-      photoID: ID,
-      quantity: {
-        [size]: num
-      }
-    });
+    this.setState({
+      [size]: num
+    })
   }
 
   enableInput(evt) {
@@ -74,13 +74,15 @@ class ItemQuantityForm extends Component {
     const SIZES = [
       {
         size: 'small',
-        dimensions: '4 x 6'
-      }, {
-        size: 'medium',
         dimensions: '5 x 7'
-      }, {
-        size: 'large',
+      },
+      {
+        size: 'Standard',
         dimensions: '8 x 10'
+      },
+      {
+        size: 'Large',
+        dimensions: '18 x 24'
       }
     ];
 
