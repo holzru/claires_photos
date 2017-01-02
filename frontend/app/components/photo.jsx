@@ -31,10 +31,7 @@ export default class Photo extends Component {
 
   onPhotoClick() {
     const { className } = this.state;
-    const { selectPhoto, photoObject } = this.props;
-
     this.renderModal();
-    selectPhoto(photoObject);
 
     if (className.includes('active')) {
       this.setState({ className: 'photo'});

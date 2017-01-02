@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { changeItemQuantity } from '../actions/index';
+import { addToShoppingCart } from '../actions/index';
 
 class ItemQuantityForm extends Component {
   constructor(props) {
@@ -12,6 +12,8 @@ class ItemQuantityForm extends Component {
     this.changeItemQuantity = this.changeItemQuantity.bind(this);
     this.enableInput = this.enableInput.bind(this);
     this.disableInput = this.disableInput.bind(this);
+    this.onPhotoSubmit = this.onPhotoSubmit.bind(this);
+
     this.state = {
         '5x7': 0,
         '8x10': 0,
@@ -70,6 +72,11 @@ class ItemQuantityForm extends Component {
     );
   }
 
+  onPhotoSubmit(event) {
+    event.preventDefault();
+    this.props.addToShoppingCart(this.props.photo, this.state);
+  }
+
   render() {
     const SIZES = [
       {
@@ -91,13 +98,19 @@ class ItemQuantityForm extends Component {
         <ul className="sizes-list">
           { this.renderSizes(SIZES) }
         </ul>
+
+        <input
+          type="submit"
+          value="Submit"
+          onClick={() => this.onPhotoSubmit()}
+        />
       </form>
     );
   }
 };
 
 let mapDispatchToProps = (dispatch) => bindActionCreators({
-  changeItemQuantity
+  addToShoppingCart
 }, dispatch);
 
 export default connect(null, mapDispatchToProps)(ItemQuantityForm);

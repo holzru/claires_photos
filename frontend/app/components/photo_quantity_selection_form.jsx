@@ -24,7 +24,7 @@ class OrderFormModal extends Component {
       <div>
         <h2>hi</h2>
         <img src={photo.url}/>
-        <ItemQuantityForm />
+        <ItemQuantityForm photo={photo}/>
       </div>
     );
   }
@@ -40,11 +40,6 @@ class OrderFormModal extends Component {
         <div id="close-modal-btn" onClick={this.props.changeModalState}>X</div>
 
         {this.renderPhoto(photo)}
-        <button
-          onClick={(photo) => this.props.addToShoppingCart(photo)}
-        >
-          Add to Shopping Cart
-        </button>
       </Modal>
     );
   }

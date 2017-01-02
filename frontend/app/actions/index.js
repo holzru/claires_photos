@@ -32,9 +32,12 @@ export const submitOrder = (order, phone, email) => {
   });
 };
 
-export const addToShoppingCart = (photo) => ({
+export const addToShoppingCart = (photo, photoQuantities) => ({
   type: ADD_TO_SHOPPING_CART,
-  payload: photo
+  payload: {
+    photo: photo,
+    quantity: photoQuantities
+  }
 });
 
 export const changeItemQuantity = (item) => ({
